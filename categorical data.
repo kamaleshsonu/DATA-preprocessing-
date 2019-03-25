@@ -13,16 +13,35 @@ y = dataset.iloc[:, 3].values
 # Taking care of missing data
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
+#*********NaN its a string and at missing values we have NAN hence we took NaN as string & insted fo mean u can use median as well.  
 imputer = imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:, 1:3])
+#**************** the word transfrom is used to find the missing data from the object. 
 
-# Encoding categorical data
+# Encoding categorical data 
 # Encoding the Independent Variable
+#*********************************************** label encoder =it converts the categorical data into maths.
+#*******************************************onehotencoder =it adds may coloum and add dummy variable
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+#* label ecoder 
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 onehotencoder = OneHotEncoder(categorical_features = [0])
 X = onehotencoder.fit_transform(X).toarray()
+
 # Encoding the Dependent Variable
+#******here the dependent variable we ae converting it into numberas thy r oly 2 var y/n (ts dependent variable)
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
+                   
+                   
+                                              NOTES :kamaleshsonu:                 
+#* NUMPY = its an open sourece package for scientific computing, it supports lager dimensions array , matrix , multidimensional array , its used to store the data in Data Type. 
+MATPOLTLIB =Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy.  
+PANDAS= is a software library written for the Python programming language for data manipulation and analysis. 
+SKLEARNING preprocessing= its a library  use to processors any data. 
+
+ILOC =is primarily integer position based (its is used as index for data frame), but may also be used with a boolean array.
+NAN= its missing data from csv file, hence we are taken NAN.
+
+
