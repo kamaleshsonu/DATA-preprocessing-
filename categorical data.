@@ -33,6 +33,35 @@ X = onehotencoder.fit_transform(X).toarray()
 #******here the dependent variable we ae converting it into numberas thy r oly 2 var y/n (ts dependent variable)
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.cross_validation import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+#*** if u have dout use control+L (we will ger object inspector) for further dout. 
+
+
+
+
+# Feature Scaling
+"""from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+sc_y = StandardScaler()
+y_train = sc_y.fit_transform(y_train)"""
+
+
+
+
+
+
+
+
+
+
+
+
                    
                    
                                               NOTES :kamaleshsonu:                 
@@ -44,4 +73,5 @@ SKLEARNING preprocessing= its a library  use to processors any data.
 ILOC =is primarily integer position based (its is used as index for data frame), but may also be used with a boolean array.
 NAN= its missing data from csv file, hence we are taken NAN.
 
-
+Standard scaler = https://medium.com/@contactsunny/why-do-we-need-feature-scaling-in-machine-learning-and-how-to-do-it-using-scikit-learn-d8314206fe73
+fit_transform it will convert the data of 70% data to    
