@@ -13,19 +13,20 @@ y = dataset.iloc[:, 3].values
 # Taking care of missing data
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-#*********NaN its a string and at missing values we have NAN hence we took NaN as string & insted fo mean u can use median as well.  
 imputer = imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:, 1:3])
-#**************** the word transfrom is used to find the missing data from the object. 
+#**************** the main role of imputer is to fill "nan" coloum + while working in python use ctrl + I for further info 
+
+
 
 # Encoding categorical data 
 # Encoding the Independent Variable
 #*********************************************** label encoder =it converts the categorical data into maths.
-#*******************************************onehotencoder =it adds may coloum and add dummy variable
+#*******************************************onehotencoder =it adds many coloum and add dummy variable
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 #* label ecoder 
 labelencoder_X = LabelEncoder()
-X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) 
 onehotencoder = OneHotEncoder(categorical_features = [0])
 X = onehotencoder.fit_transform(X).toarray()
 
@@ -38,7 +39,7 @@ y = labelencoder_y.fit_transform(y)
 from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
-#*** if u have dout use control+L (we will ger object inspector) for further dout. 
+#*** if u have dout use control+L (we will ger object inspector) for further info. 
 
 
 
